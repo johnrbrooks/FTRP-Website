@@ -1,3 +1,4 @@
+// src/components/Navbar.jsx
 import { useState } from "react";
 import {
   AppBar,
@@ -13,7 +14,7 @@ import {
 import { Menu as MenuIcon } from "@mui/icons-material";
 import { Instagram, Facebook } from "@mui/icons-material";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import "react-lazy-load-image-component/src/effects/blur.css"; // Blur effect
+import "react-lazy-load-image-component/src/effects/blur.css";
 import logo from "../assets/FTRP_logo_large.png";
 
 const navLinks = [
@@ -29,40 +30,70 @@ function Navbar() {
 
   return (
     <>
-      <AppBar position="sticky" sx={{ backgroundColor: "#990A0A", padding: "20px" }}>
+      <AppBar position="sticky" sx={{ backgroundColor: "#DBDBDE", padding: "10px 20px" }}>
         <Toolbar sx={{ minHeight: "80px", justifyContent: "space-between" }}>
           {/* Logo with Lazy Loading */}
           <Box sx={{ flexGrow: 1 }}>
             <LazyLoadImage
               src={logo}
-              alt="Logo"
-              effect="blur" // Smooth blur effect while loading
-              height="100px"
+              alt="For The Record Productions - Music Production Logo"
+              effect="blur"
+              height="80px"
+              style={{ cursor: "pointer" }}
             />
           </Box>
 
           {/* Desktop Nav Links */}
-          <Box sx={{ display: { xs: "none", md: "flex" }, gap: 2 }}>
+          <Box sx={{ display: { xs: "none", md: "flex" }, gap: 3 }}>
             {navLinks.map((link) => (
-              <Button key={link.text} href={link.href} sx={{ color: "#FFFFFF", fontSize: "1.2rem", "&:hover": { color: "#000000" } }}>
+              <Button
+                key={link.text}
+                href={link.href}
+                sx={{
+                  color: "#000000",
+                  fontSize: "1.1rem",
+                  "&:hover": {
+                    backgroundColor: "#990A0A",
+                    color: "#FFFFFF",
+                  },
+                  transition: "all 0.3s ease-in-out",
+                }}
+              >
                 {link.text}
               </Button>
             ))}
           </Box>
 
-          {/* Social Icons */}
-          <Box sx={{ display: { xs: "none", md: "flex" }, gap: 1 }}>
-            <Button sx={{ color: "#FFFFFF", "&:hover": { color: "#000000" } }} href="https://instagram.com" target="_blank">
+          {/* Social Icons (Desktop) */}
+          <Box sx={{ display: { xs: "none", md: "flex" }, gap: 2 }}>
+            <IconButton
+              sx={{
+                color: "#990A0A",
+                "&:hover": { color: "#000000" },
+              }}
+              href="https://www.instagram.com/john_brooks_93/"
+              target="_blank"
+            >
               <Instagram />
-            </Button>
-            <Button sx={{ color: "#FFFFFF", "&:hover": { color: "#000000" } }} href="https://facebook.com" target="_blank">
+            </IconButton>
+            <IconButton
+              sx={{
+                color: "#990A0A",
+                "&:hover": { color: "#000000" },
+              }}
+              href="https://www.facebook.com/fortherecordpro"
+              target="_blank"
+            >
               <Facebook />
-            </Button>
+            </IconButton>
           </Box>
 
           {/* Mobile Menu Button */}
           <IconButton
-            sx={{ display: { xs: "flex", md: "none" }, color: "#FFFFFF" }}
+            sx={{
+              display: { xs: "flex", md: "none" },
+              color: "#990A0A",
+            }}
             onClick={() => setMobileOpen(true)}
           >
             <MenuIcon />
@@ -72,12 +103,43 @@ function Navbar() {
 
       {/* Mobile Drawer Menu */}
       <Drawer anchor="right" open={mobileOpen} onClose={() => setMobileOpen(false)}>
-        <List sx={{ width: 250 }}>
+        <List sx={{ width: 250, backgroundColor: "#DBDBDE", height: "100%" }}>
           {navLinks.map((link) => (
-            <ListItem button key={link.text} onClick={() => setMobileOpen(false)} component="a" href={link.href}>
+            <ListItem
+              button
+              key={link.text}
+              onClick={() => setMobileOpen(false)}
+              component="a"
+              href={link.href}
+              sx={{ color: "#990A0A"}}
+            >
               <ListItemText primary={link.text} />
             </ListItem>
           ))}
+
+          {/* Social Icons (Mobile) */}
+          <Box sx={{ display: "flex", justifyContent: "center", gap: 2, mt: 2 }}>
+            <IconButton
+              sx={{
+                color: "#990A0A",
+                "&:hover": { color: "#000000" },
+              }}
+              href="https://www.instagram.com/john_brooks_93/"
+              target="_blank"
+            >
+              <Instagram />
+            </IconButton>
+            <IconButton
+              sx={{
+                color: "#990A0A",
+                "&:hover": { color: "#000000" },
+              }}
+              href="https://www.facebook.com/fortherecordpro"
+              target="_blank"
+            >
+              <Facebook />
+            </IconButton>
+          </Box>
         </List>
       </Drawer>
     </>
