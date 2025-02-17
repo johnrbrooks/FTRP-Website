@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Box, Card, CardContent, CardMedia, Typography, Grid } from "@mui/material";
 import DeskLeftSideMidSmaller from "../assets/DeskLeftSideMidSmaller.jpg";
-import FadersClose from "../assets/FadersClose.jpg";
+import FadersClose from "../assets/fadersClose.jpg";
 import GearPic from "../assets/GearPic.jpg";
 
 const services = [
