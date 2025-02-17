@@ -74,10 +74,10 @@ function Services() {
       }}
     >
       <Typography variant="h3" gutterBottom>
-        My Services
+        Our Services
       </Typography>
       <Typography variant="body1" sx={{ maxWidth: 600, margin: "0 auto", mb: 4 }}>
-        Explore my range of professional music services, from full-scale production to final mastering.
+        Explore our range of professional music services, from full-scale production to final mastering.
       </Typography>
 
       {/* Original Grid with spacing, now made into a motion container */}

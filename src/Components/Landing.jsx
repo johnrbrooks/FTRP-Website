@@ -1,5 +1,6 @@
-import { Box, Typography, Button } from "@mui/material";
+import { Box, Typography, Button, IconButton } from "@mui/material";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import { Instagram, Facebook } from "@mui/icons-material";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import fadersClose from "../assets/fadersClose.jpg";
 
@@ -84,7 +85,7 @@ function Landing() {
           position: "relative",
           zIndex: 1,
           maxWidth: "600px",
-          mb: 2,
+          mb: 3,
           fontSize: { xs: "1rem", sm: "1.3rem", md: "1.5rem" },
         }}
       >
@@ -92,21 +93,94 @@ function Landing() {
       </Typography>
 
       {/* Smooth Scroll Button */}
-      <Button
-        variant="contained"
-        onClick={() => scrollToSection("services")} // <-- Use our helper
+      <Box
         sx={{
           zIndex: 1,
-          backgroundColor: "#990A0A",
-          color: "#FFFFFF",
-          fontWeight: 600,
-          padding: "10px 20px",
-          fontSize: { xs: "0.9rem", sm: "1rem" },
-          "&:hover": { backgroundColor: "#000000" },
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: { xs: "15px", sm: "20px", md: "30px" },
         }}
       >
-        Explore Our Services
-      </Button>
+        <Button
+          variant="contained"
+          onClick={() => scrollToSection("services")} // <-- Use our helper
+          sx={{
+            zIndex: 1,
+            backgroundColor: "#990A0A",
+            color: "#FFFFFF",
+            fontWeight: 600,
+            padding: { xs: "6px 12px", sm: "8px 16px", md: "10px 20px" },
+            fontSize: { xs: "0.9rem", sm: "1rem" },
+            "&:hover": { backgroundColor: "#000000" },
+          }}
+        >
+          Explore Our Services
+        </Button>
+        <Button
+          variant="contained"
+          onClick={() => scrollToSection("contact")} // <-- Use our helper
+          sx={{
+            zIndex: 1,
+            backgroundColor: "#990A0A",
+            color: "#FFFFFF",
+            fontWeight: 600,
+            padding: { xs: "6px 12px", sm: "8px 16px", md: "10px 20px" },
+            fontSize: { xs: "0.9rem", sm: "1rem" },
+            "&:hover": { backgroundColor: "#000000" },
+          }}
+        >
+          Contact Us
+        </Button>
+      </Box>
+      <Typography
+        variant="h5"
+        sx={{
+          position: "relative",
+          zIndex: 1,
+          maxWidth: "600px",
+          mt: 4,
+          fontSize: { xs: "1rem", sm: "1rem", md: "1.25rem" },
+          textAlign: "center",
+        }}
+      >
+        Or DM us on Instagram or Facebook!
+      </Typography>
+      <Box 
+        sx={{
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          gap: "50px",
+        }}
+      >
+        <IconButton
+          sx={{
+            color: "#990A0A",
+            "&:hover": { color: "#000000" },
+          }}
+          href="https://www.instagram.com/john_brooks_93/"
+          target="_blank"
+        >
+          <Instagram 
+            sx={{ fontSize: "3rem" }}
+          />
+        </IconButton>
+        <IconButton
+          sx={{
+            color: "#990A0A",
+            "&:hover": { color: "#000000" },
+          }}
+          href="https://www.facebook.com/fortherecordpro"
+          target="_blank"
+        >
+          <Facebook 
+            sx={{ fontSize: "3rem" }}
+          />
+        </IconButton>
+      </Box>
     </Box>
   );
 }

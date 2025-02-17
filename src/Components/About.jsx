@@ -63,7 +63,7 @@ function About() {
         }}
       >
         <Typography variant="h3" gutterBottom fontWeight="700" color="#FFFFFF">
-          Meet John Brooks
+          Meet The Owner
         </Typography>
 
         <Grid
@@ -152,7 +152,7 @@ function About() {
                 sx={{
                   lineHeight: 1.7,
                   fontSize: { xs: "1rem", md: "1.1rem" },
-                  textAlign: "justify",
+                  textAlign: "left",
                   maxWidth: "100%",
                   color: "#FFFFFF",
                 }}
@@ -162,7 +162,7 @@ function About() {
                 and mixing to help artists shape their sonic identity.
                 <br /><br />
                 I'm John Brooks, a multi-instrumentalist (guitar, bass, drums, with a touch of keys)
-                and an audio engineer with over a decade of experience. My passion for sound was
+                and an audio engineer with a music obsession. My passion for sound was
                 sparked early, and I’ve spent years mastering the craft of making records that hit
                 just as hard as the pros.
                 <br /><br />
