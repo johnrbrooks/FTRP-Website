@@ -1,5 +1,4 @@
 // src/components/Testimonials.jsx
-
 import React, { useState, useEffect } from "react";
 import {
   Box,
@@ -19,7 +18,7 @@ import Suko from "../assets/Suko.png";
 import Unsullied from "../assets/Unsullied.jpg";
 import TheOtherSide from "../assets/The_Other_Side.png";
 
-// Full reviews + covers
+// All testimonials
 const allTestimonials = [
   {
     name: "Bartees Strange",
@@ -65,8 +64,12 @@ const allTestimonials = [
   },
 ];
 
-// Two slides: first 4 testimonials, then 3
-const slides = [allTestimonials.slice(0, 4), allTestimonials.slice(4, 7)];
+// Group them in sets of [3, 3, 1]
+const slides = [
+  allTestimonials.slice(0, 3), // first 3
+  allTestimonials.slice(3, 6), // next 3
+  allTestimonials.slice(6, 7), // last 1
+];
 
 // Container-level animation
 const containerVariants = {
@@ -90,7 +93,14 @@ function Testimonials() {
   // Automatic cycling every 6 seconds
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev === 0 ? 1 : 0));
+      setCurrentSlide((prev) => {
+        // Cycle through slides [0 → 1 → 2 → 0 → ...]
+        if (prev === slides.length - 1) {
+          return 0;
+        } else {
+          return prev + 1;
+        }
+      });
     }, 6000);
 
     return () => clearInterval(interval);
@@ -110,7 +120,7 @@ function Testimonials() {
         color: "#FFF",
         position: "relative",
         overflow: "hidden",
-        // Enough height to accommodate both slides without resizing
+        // Enough height to accommodate 3 cards on mobile without resizing
         minHeight: "600px",
       }}
     >
@@ -152,7 +162,7 @@ function Testimonials() {
                   overflow: "hidden",
                   width: "100%",
                   maxWidth: "380px",
-                  height: "450px", // Shorter than Services
+                  height: "450px",
                   display: "flex",
                   flexDirection: "column",
                 }}
@@ -165,8 +175,8 @@ function Testimonials() {
                   style={{
                     width: "100%",
                     height: "200px",
-                    objectFit: "cover", // Fill entire image area
-                    backgroundColor: "#fff", // any letterboxing areas remain white
+                    objectFit: "cover",
+                    backgroundColor: "#fff",
                   }}
                 />
                 <CardContent
@@ -183,7 +193,7 @@ function Testimonials() {
                   </Typography>
                   <Box
                     sx={{
-                      maxHeight: "120px", // Room for average text
+                      maxHeight: "120px",
                       overflowY: "auto",
                       "&::-webkit-scrollbar": { width: "6px" },
                       "&::-webkit-scrollbar-track": { background: "#f1f1f1" },
