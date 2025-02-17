@@ -16,17 +16,26 @@ import { Instagram, Facebook } from "@mui/icons-material";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import logo from "../assets/FTRP_logo_large.png";
+// Import our new util
+import { scrollToSection } from "../utils/scrollToSection";
 
 const navLinks = [
-  { text: "About", href: "#about" },
-  { text: "Services", href: "#services" },
-  { text: "Work", href: "#work" },
-  { text: "Testimonials", href: "#testimonials" },
-  { text: "Contact", href: "#contact" },
+  { text: "About", id: "about" },
+  { text: "Services", id: "services" },
+  { text: "Work", id: "work" },
+  { text: "Testimonials", id: "testimonials" },
+  { text: "Contact", id: "contact" },
 ];
 
 function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  const handleNavClick = (sectionId) => {
+    // Close drawer if mobile
+    setMobileOpen(false);
+    // Smooth scroll
+    scrollToSection(sectionId);
+  };
 
   return (
     <>
@@ -40,6 +49,7 @@ function Navbar() {
               effect="blur"
               height="80px"
               style={{ cursor: "pointer" }}
+              onClick={() => scrollToSection("landing")} // If user clicks logo, scroll to top
             />
           </Box>
 
@@ -48,7 +58,7 @@ function Navbar() {
             {navLinks.map((link) => (
               <Button
                 key={link.text}
-                href={link.href}
+                onClick={() => handleNavClick(link.id)}
                 sx={{
                   color: "#000000",
                   fontSize: "1.1rem",
@@ -108,9 +118,7 @@ function Navbar() {
             <ListItem
               button
               key={link.text}
-              onClick={() => setMobileOpen(false)}
-              component="a"
-              href={link.href}
+              onClick={() => handleNavClick(link.id)}
               sx={{ color: "#990A0A"}}
             >
               <ListItemText primary={link.text} />

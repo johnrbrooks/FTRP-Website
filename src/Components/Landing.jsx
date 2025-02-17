@@ -3,6 +3,16 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import fadersClose from "../assets/fadersClose.jpg";
 
+// Smooth scroll helper
+function scrollToSection(id) {
+  const navbarOffset = 80; // Adjust to your navbar height
+  const el = document.getElementById(id);
+  if (el) {
+    const y = el.getBoundingClientRect().top + window.pageYOffset - navbarOffset;
+    window.scrollTo({ top: y, behavior: "smooth" });
+  }
+}
+
 function Landing() {
   return (
     <Box
@@ -62,7 +72,7 @@ function Landing() {
           zIndex: 1,
           fontWeight: 700,
           mb: 1,
-          fontSize: { xs: "2.5rem", sm: "2.5rem", md: "3rem", lg: "3.5rem" }, // ✅ Responsive font sizing
+          fontSize: { xs: "2.5rem", sm: "2.5rem", md: "3rem", lg: "3.5rem" },
         }}
       >
         For The Record Productions
@@ -75,22 +85,23 @@ function Landing() {
           zIndex: 1,
           maxWidth: "600px",
           mb: 2,
-          fontSize: { xs: "1rem", sm: "1.3rem", md: "1.5rem" }, // ✅ Smaller subheading for phones
+          fontSize: { xs: "1rem", sm: "1.3rem", md: "1.5rem" },
         }}
       >
         Your One-Stop Shop for Professional Music Production, Mixing & Mastering
       </Typography>
 
+      {/* Smooth Scroll Button */}
       <Button
         variant="contained"
-        href="#services"
+        onClick={() => scrollToSection("services")} // <-- Use our helper
         sx={{
           zIndex: 1,
           backgroundColor: "#990A0A",
           color: "#FFFFFF",
           fontWeight: 600,
           padding: "10px 20px",
-          fontSize: { xs: "0.9rem", sm: "1rem" }, // ✅ Button text adjusts
+          fontSize: { xs: "0.9rem", sm: "1rem" },
           "&:hover": { backgroundColor: "#000000" },
         }}
       >

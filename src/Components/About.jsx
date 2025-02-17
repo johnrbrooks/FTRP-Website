@@ -94,6 +94,7 @@ function About() {
                           width: "100%",
                           height: { xs: "120px", md: "200px" },
                           objectFit: "cover",
+                          objectPosition: "top"
                         }}
                       />
                     </Card>
@@ -111,6 +112,7 @@ function About() {
                           width: "100%",
                           height: { xs: "120px", md: "200px" },
                           objectFit: "cover",
+                          objectPosition: "top"
                         }}
                       />
                     </Card>

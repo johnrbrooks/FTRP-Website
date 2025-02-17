@@ -1,6 +1,7 @@
 // src/App.jsx
 import React from "react";
 import { CssBaseline } from "@mui/material";
+import useScrollSpy from "./hooks/useScrollSpy"; // Implement from prior snippet
 import Navbar from "./Components/Navbar";
 import Landing from "./Components/Landing";
 import About from "./Components/About";
@@ -11,33 +12,19 @@ import Contact from "./Components/Contact";
 import Footer from "./Components/Footer";
 
 function App() {
+  // If you want to update the path based on the visible section:
+  useScrollSpy(["landing", "about", "services", "work", "testimonials", "contact"]);
+
   return (
     <>
-      {/* Resets default browser styles for a cleaner look */}
       <CssBaseline />
-
-      {/* Sticky navigation bar */}
       <Navbar />
-
-      {/* Full-page hero section */}
       <Landing />
-
-      {/* About section */}
       <About />
-
-      {/* Services grid */}
       <Services />
-
-      {/* Work/Spotify embed */}
       <Work />
-
-      {/* Testimonials carousel/grid */}
       <Testimonials />
-
-      {/* Contact form */}
       <Contact />
-
-      {/* Site footer */}
       <Footer />
     </>
   );
