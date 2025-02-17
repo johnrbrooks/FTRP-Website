@@ -1,14 +1,14 @@
 // src/App.jsx
 import React from "react";
 import { CssBaseline } from "@mui/material";
-import Navbar from "./components/Navbar";
-import Landing from "./components/Landing";
-import About from "./components/About";
-import Services from "./components/Services";
-import Work from "./components/Work";
-import Testimonials from "./components/Testimonials";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
+import Navbar from "./Components/Navbar";
+import Landing from "./Components/Landing";
+import About from "./Components/About";
+import Services from "./Components/Services";
+import Work from "./Components/Work";
+import Testimonials from "./Components/Testimonials";
+import Contact from "./Components/Contact";
+import Footer from "./Components/Footer";
 
 function App() {
   return (
